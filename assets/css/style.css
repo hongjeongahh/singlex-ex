@@ -20,7 +20,7 @@ body {
     background:#202529;
 }
 .wrap {
-    min-width: 1920px;
+    /* min-width: 1920px; */
     /* width:100%;
     height:100%; */
     padding:12px 71px 26.5px 129px;
