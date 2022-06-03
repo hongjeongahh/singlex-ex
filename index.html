@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/css/c3.min.css">
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <script src="./assets/js/lib/c3.min.js"></script>
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="wrap">
+        <div class="header">
+            <div class="title">
+                <h1>서비스 운영 현황</h1>
+                <p class="bookmark">즐겨찾기</p>
+                <p class="link">바로가기</p>
+            </div>
+            <div class="member">
+                <div>
+                    <span class="name"">홍길동</span> <span class="rank">팀장</span> (<span class="team">CTO 인프라아키텍처담당 SINGLEX아키텍처팀</span>)
+                </div>
+            </div>
+        </div>
+        <div class="content">
+            <div class="tab-wrap">
+                <ul class="tab-btn">
+                    <li class="active"><h2>Service</h2></li>
+                    <li><h2>Tenant</h2></li>
+                </ul>
+                <div class="tab-content active">
+                    <div class="top-area">
+                        <div class="select-box">
+                            <button class="label">Service 전체</button>
+                            <ul class="option">
+                                <li>Service 전체</li>
+                                <li>어찌구</li>
+                                <li>저찌구</li>
+                            </ul>
+                        </div>
+                        <div class="select-box">
+                            <button class="label">Tenant 전체</button>
+                            <ul class="option">
+                                <li>Tenant 전체</li>
+                                <li>어찌구</li>
+                                <li>저찌구</li>
+                            </ul>
+                        </div>
+                        <div class="select-box">
+                            <button class="label">Refresh 10분</button>
+                            <ul class="option">
+                                <li>Refresh 10분</li>
+                                <li>어찌구</li>
+                                <li>저찌구</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="main-area">
+                        <section>
+                            <div class="type-chart dot">
+                                <div class="title">
+                                    <div>
+                                        <h3>Health Check Status - Service 전체</h2>
+                                        (<small>12:01</small>)
+                                    </div>
+                                    <i>모지이건</i>
+                                </div>
+                                <div class="box">
+                                    <div class="chart-area"></div>
+                                    <div class="chart-content">
+                                        <ul class="chart-info">
+                                            <li>
+                                                <div>
+                                                    <p class="good">Good</p>
+                                                    <span class="tooltip"></span>
+                                                </div>
+                                                <p class="count">34</p>
+                                            </li>
+                                            <li>
+                                                <div>
+                                                    <p class="warn">Warning</p>
+                                                    <span class="tooltip"></span>
+                                                </div>
+                                                <p class="count">2</p>
+                                            </li>
+                                            <li>
+                                                <div>
+                                                    <p class="bad">Bad</p>
+                                                    <span class="tooltip"></span>
+                                                </div>
+                                                <p class="count">1</p>
+                                            </li>
+                                        </ul>
+                                        <p>Total Services: <i class="sum">37</i></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+
+                        <section>
+                            <div class="type-chart donut">
+                                <div class="title">
+                                    <div>
+                                        <h3>SLO Status - Service 전체</h3>
+                                        <small>(2022.05.01~)</small>
+                                    </div>
+                                    <i>모지이건</i>
+                                </div>
+                                <div class="box">
+                                    <div class="chart-area">
+                                        <div id="chart"></div>
+                                    </div>
+                                    <div class="chart-content">
+                                        <ul class="chart-info">
+                                            <li>
+                                                <div>
+                                                    <p class="good">Good</p>
+                                                    <span class="txt">(SLO 100%)</span>
+                                                </div>
+                                                <p class="count">1</p>
+                                            </li>
+                                            <li>
+                                                <div>
+                                                    <p class="warn">Warning</p>
+                                                    <span class="txt">(SLO 99~ 80%이상)</span>
+                                                </div>
+                                                <p class="count">1</p>
+                                            </li>
+                                            <li>
+                                                <div>
+                                                    <p class="bad">Bad</p>
+                                                    <span class="txt">(SLO 80%미만)</span>
+                                                </div>
+                                                <p class="count">3</p>
+                                            </li>
+                                        </ul>
+                                        <p>Total Services: <i class="sum">5</i></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+
+                        <section>
+                            <div class="type-accordion multi">
+                                <div class="title">
+                                    <h3>Health Check by Services</h3>
+                                </div>
+                                <div class="service">
+                                    <div class="accordion-wrap">
+                                        <div class="accordion-tit">
+                                            <h4>기준정보 관리(MDM)</h4>
+                                            <div>
+                                                <span class="good">3</span>
+                                                <span class="warn">1</span>
+                                                <span class="bad">0</span>
+                                            </div>
+                                        </div>
+                                        <div class="accordion-cont">
+                                            <p class="good">LG이노텍</p>
+                                            <p class="good">LG화학</p>
+                                            <p class="good">LX판토스</p>
+                                            <p class="warn">LGCNS</p>
+                                            <p class="bad">지투알</p>
+                                        </div>
+                                    </div>
+                                    <div class="accordion-wrap">
+                                        <div class="accordion-tit">
+                                            <h4>기준정보 관리(MDM)</h4>
+                                            <div>
+                                                <span class="good">3</span>
+                                                <span class="warn">1</span>
+                                                <span class="bad">0</span>
+                                            </div>
+                                        </div>
+                                        <div class="accordion-cont">
+                                            <p class="good">LG이노텍</p>
+                                            <p class="good">LG화학</p>
+                                            <p class="good">LX판토스</p>
+                                            <p class="warn">LGCNS</p>
+                                            <p class="bad">지투알</p>
+                                        </div>
+                                    </div>
+                                    <div class="accordion-wrap">
+                                        <div class="accordion-tit">
+                                            <h4>기준정보 관리(MDM)</h4>
+                                            <div>
+                                                <span class="good">3</span>
+                                                <span class="warn">1</span>
+                                                <span class="bad">0</span>
+                                            </div>
+                                        </div>
+                                        <div class="accordion-cont">
+                                            <p class="good">LG이노텍</p>
+                                            <p class="good">LG화학</p>
+                                            <p class="good">LX판토스</p>
+                                            <p class="warn">LGCNS</p>
+                                            <p class="bad">지투알</p>
+                                        </div>
+                                    </div>
+                                    <div class="accordion-wrap">
+                                        <div class="accordion-tit">
+                                            <h4>기준정보 관리(MDM)</h4>
+                                            <div>
+                                                <span class="good">3</span>
+                                                <span class="warn">1</span>
+                                                <span class="bad">0</span>
+                                            </div>
+                                        </div>
+                                        <div class="accordion-cont">
+                                            <p class="good">LG이노텍</p>
+                                            <p class="good">LG화학</p>
+                                            <p class="good">LX판토스</p>
+                                            <p class="warn">LGCNS</p>
+                                            <p class="bad">지투알</p>
+                                        </div>
+                                    </div>
+                                    <div class="accordion-wrap">
+                                        <div class="accordion-tit">
+                                            <h4>기준정보 관리(MDM)</h4>
+                                            <div>
+                                                <span class="good">3</span>
+                                                <span class="warn">1</span>
+                                                <span class="bad">0</span>
+                                            </div>
+                                        </div>
+                                        <div class="accordion-cont">
+                                            <p class="good">LG이노텍</p>
+                                            <p class="good">LG화학</p>
+                                            <p class="good">LX판토스</p>
+                                            <p class="warn">LGCNS</p>
+                                            <p class="bad">지투알</p>
+                                        </div>
+                                    </div>
+                                    <div class="accordion-wrap">
+                                        <div class="accordion-tit">
+                                            <h4>기준정보 관리(MDM)</h4>
+                                            <div>
+                                                <span class="good">3</span>
+                                                <span class="warn">1</span>
+                                                <span class="bad">0</span>
+                                            </div>
+                                        </div>
+                                        <div class="accordion-cont">
+                                            <p class="good">LG이노텍</p>
+                                            <p class="good">LG화학</p>
+                                            <p class="good">LX판토스</p>
+                                            <p class="warn">LGCNS</p>
+                                            <p class="bad">지투알</p>
+                                        </div>
+                                    </div>
+                                    <div class="accordion-wrap">
+                                        <div class="accordion-tit">
+                                            <h4>기준정보 관리(MDM)</h4>
+                                            <div>
+                                                <span class="good">3</span>
+                                                <span class="warn">1</span>
+                                                <span class="bad">0</span>
+                                            </div>
+                                        </div>
+                                        <div class="accordion-cont">
+                                            <p class="good">LG이노텍</p>
+                                            <p class="good">LG화학</p>
+                                            <p class="good">LX판토스</p>
+                                            <p class="warn">LGCNS</p>
+                                            <p class="bad">지투알</p>
+                                        </div>
+                                    </div>
+                                    <div class="accordion-wrap">
+                                        <div class="accordion-tit">
+                                            <h4>기준정보 관리(MDM)</h4>
+                                            <div>
+                                                <span class="good">3</span>
+                                                <span class="warn">1</span>
+                                                <span class="bad">0</span>
+                                            </div>
+                                        </div>
+                                        <div class="accordion-cont">
+                                            <p class="good">LG이노텍</p>
+                                            <p class="good">LG화학</p>
+                                            <p class="good">LX판토스</p>
+                                            <p class="warn">LGCNS</p>
+                                            <p class="bad">지투알</p>
+                                        </div>
+                                    </div>
+                                    <div class="accordion-wrap">
+                                        <div class="accordion-tit">
+                                            <h4>기준정보 관리(MDM)</h4>
+                                            <div>
+                                                <span class="good">3</span>
+                                                <span class="warn">1</span>
+                                                <span class="bad">0</span>
+                                            </div>
+                                        </div>
+                                        <div class="accordion-cont">
+                                            <p class="good">LG이노텍</p>
+                                            <p class="good">LG화학</p>
+                                            <p class="good">LX판토스</p>
+                                            <p class="warn">LGCNS</p>
+                                            <p class="bad">지투알</p>
+                                        </div>
+                                    </div>
+                                    <div class="accordion-wrap">
+                                        <div class="accordion-tit">
+                                            <h4>기준정보 관리(MDM)</h4>
+                                            <div>
+                                                <span class="good">3</span>
+                                                <span class="warn">1</span>
+                                                <span class="bad">0</span>
+                                            </div>
+                                        </div>
+                                        <div class="accordion-cont">
+                                            <p class="good">LG이노텍</p>
+                                            <p class="good">LG화학</p>
+                                            <p class="good">LX판토스</p>
+                                            <p class="warn">LGCNS</p>
+                                            <p class="bad">지투알</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+
+                        
+                        <section>
+                            <div class="type-accordion">
+                                <div class="title">
+                                    <h3>Health Check by Services</h3>
+                                </div>
+                                <div class="service">
+                                    <div class="accordion-wrap">
+                                        <div class="accordion-tit">
+                                            <h4>기준정보 관리(MDM)</h4>
+                                            <div>
+                                                <span class="good">3</span>
+                                                <span class="warn">1</span>
+                                                <span class="bad">0</span>
+                                            </div>
+                                        </div>
+                                        <div class="accordion-cont">
+                                            <p class="good">LG이노텍</p>
+                                            <p class="good">LG화학</p>
+                                            <p class="good">LX판토스</p>
+                                            <p class="warn">LGCNS</p>
+                                            <p class="bad">지투알</p>
+                                        </div>
+                                    </div>
+                                    <div class="accordion-wrap">
+                                        <div class="accordion-tit">
+                                            <h4>기준정보 관리(MDM)</h4>
+                                            <div>
+                                                <span class="good">3</span>
+                                                <span class="warn">1</span>
+                                                <span class="bad">0</span>
+                                            </div>
+                                        </div>
+                                        <div class="accordion-cont">
+                                            <p class="good">LG이노텍</p>
+                                            <p class="good">LG화학</p>
+                                            <p class="good">LX판토스</p>
+                                            <p class="warn">LGCNS</p>
+                                            <p class="bad">지투알</p>
+                                        </div>
+                                    </div>
+                                    <div class="accordion-wrap">
+                                        <div class="accordion-tit">
+                                            <h4>기준정보 관리(MDM)</h4>
+                                            <div>
+                                                <span class="good">3</span>
+                                                <span class="warn">1</span>
+                                                <span class="bad">0</span>
+                                            </div>
+                                        </div>
+                                        <div class="accordion-cont">
+                                            <p class="good">LG이노텍</p>
+                                            <p class="good">LG화학</p>
+                                            <p class="good">LX판토스</p>
+                                            <p class="warn">LGCNS</p>
+                                            <p class="bad">지투알</p>
+                                        </div>
+                                    </div>
+                                    <div class="accordion-wrap">
+                                        <div class="accordion-tit">
+                                            <h4>기준정보 관리(MDM)</h4>
+                                            <div>
+                                                <span class="good">3</span>
+                                                <span class="warn">1</span>
+                                                <span class="bad">0</span>
+                                            </div>
+                                        </div>
+                                        <div class="accordion-cont">
+                                            <p class="good">LG이노텍</p>
+                                            <p class="good">LG화학</p>
+                                            <p class="good">LX판토스</p>
+                                            <p class="warn">LGCNS</p>
+                                            <p class="bad">지투알</p>
+                                        </div>
+                                    </div>
+                                    <div class="accordion-wrap">
+                                        <div class="accordion-tit">
+                                            <h4>기준정보 관리(MDM)</h4>
+                                            <div>
+                                                <span class="good">3</span>
+                                                <span class="warn">1</span>
+                                                <span class="bad">0</span>
+                                            </div>
+                                        </div>
+                                        <div class="accordion-cont">
+                                            <p class="good">LG이노텍</p>
+                                            <p class="good">LG화학</p>
+                                            <p class="good">LX판토스</p>
+                                            <p class="warn">LGCNS</p>
+                                            <p class="bad">지투알</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="type-accordion simple">
+                                <div class="title">
+                                    <h3>SLO by Services</h3>
+                                    <small>(작성 기준 : SLO 달성건 /전체 SLI건)</small>
+                                </div>
+                                <div class="service">
+                                    <div class="accordion-wrap">
+                                        <div class="accordion-tit">
+                                            <h4>Common Service</h4>
+                                            <p class="bad">Bad</p>
+                                        </div>
+                                        <div class="accordion-cont">
+                                            <p class="good">LG이노텍</p>
+                                            <p class="good">LG화학</p>
+                                            <p class="good">LX판토스</p>
+                                            <p class="warn">LGCNS</p>
+                                            <p class="bad">지투알</p>
+                                        </div>
+                                    </div>
+                                    <div class="accordion-wrap">
+                                        <div class="accordion-tit">
+                                            <h4>사용자 경비관리(UAS)</h4>
+                                            <p class="warn">Warning</p>
+                                        </div>
+                                        <div class="accordion-cont">
+                                            <p class="good">LG이노텍</p>
+                                            <p class="good">LG화학</p>
+                                            <p class="good">LX판토스</p>
+                                            <p class="warn">LGCNS</p>
+                                            <p class="bad">지투알</p>
+                                        </div>
+                                    </div>
+                                    <div class="accordion-wrap">
+                                        <div class="accordion-tit">
+                                            <h4>설비관리(EMS)</h4>
+                                            <p class="good">good</p>
+                                        </div>
+                                        <div class="accordion-cont">
+                                            <p class="good">LG이노텍</p>
+                                            <p class="good">LG화학</p>
+                                            <p class="good">LX판토스</p>
+                                            <p class="warn">LGCNS</p>
+                                            <p class="bad">지투알</p>
+                                        </div>
+                                    </div>
+                                    <div class="accordion-wrap">
+                                        <div class="accordion-tit">
+                                            <h4>기준정보 관리(MDM)</h4>
+                                            <p class="good">good</p>
+                                        </div>
+                                        <div class="accordion-cont">
+                                            <p class="good">LG이노텍</p>
+                                            <p class="good">LG화학</p>
+                                            <p class="good">LX판토스</p>
+                                            <p class="warn">LGCNS</p>
+                                            <p class="bad">지투알</p>
+                                        </div>
+                                    </div>
+                                    <div class="accordion-wrap">
+                                        <div class="accordion-tit">
+                                            <h4>Common Infra</h4>
+                                            <p class="good">good</p>
+                                        </div>
+                                        <div class="accordion-cont">
+                                            <p class="good">LG이노텍</p>
+                                            <p class="good">LG화학</p>
+                                            <p class="good">LX판토스</p>
+                                            <p class="warn">LGCNS</p>
+                                            <p class="bad">지투알</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+                <div class="tab-content"></div>
+           </div>
+        </div>
+    </div>
+
+    <script>
+        var chart = c3.generate({
+            data: {
+                columns: [
+                    ['data1', 1],
+                    ['data2', 1],
+                    ['data3', 3]
+                ],
+                type: 'donut',
+                colors: {
+                    'data1': '#56AA74',
+                    'data2': '#FFB941',
+                    'data3': '#C05353'
+                }
+            }
+        });
+    </script>
+</body>
+</html>

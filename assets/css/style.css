@@ -1,0 +1,225 @@
+html{box-sizing:border-box; -webkit-touch-callout:none}
+*, *::before, *::after {box-sizing:border-box}
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed,  figure, figcaption, footer, header, hgroup,  menu, nav, output, ruby, section, summary, time, mark, audio, video {margin:0; padding:0; border:0}
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, main {display: block}
+ul, ol {list-style:none}
+img, input, select {vertical-align:middle}
+em, address, i {font-style:normal}
+blockquote, q {quotes:none}
+table {width:100%; word-wrap:break-word; border-spacing:0; border-collapse:separate; empty-cells:show; table-layout:fixed}
+caption {visibility:hidden; width:0; height:0; margin:0; padding:0; font-size:0; line-height:0}
+h1, h2, h3, h4, h5, h6, strong {font-weight:400}
+em {font-weight:800}
+input[type="text"], input[type="number"], input[type="password"], input[type="search"]{-webkit-border-radius:0; -webkit-appearance:none; border:0; padding:0}
+button {border:0; padding:0; background:transparent}
+
+body {
+    width:100vw;
+    height:100vh;
+    overflow:hidden;
+    /* background:#202529; */
+}
+.wrap {
+    width:100%;
+    height:100%;
+    padding:12px 71px 26.5px 129px;
+}
+.header {
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+}
+.content {
+    width:100%;
+    height:100%;
+}
+.content .tab-wrap .tab-btn {
+    display:flex;
+}
+.content .tab-wrap .tab-btn li {
+    width:200px;
+}
+.content .tab-wrap .tab-content {
+    display:none;
+}
+.content .tab-wrap .tab-content.active {
+    display:block;
+}
+.content .tab-wrap .tab-content .top-area {
+    display:flex;
+}
+.select-box {}
+.select-box .label {
+
+}
+.select-box .option {
+    display:none;
+}
+.content .main-area {
+    display:flex;
+    flex-wrap:wrap;
+    width:100%;
+}
+.content .main-area section {
+    display:flex;
+    justify-content:space-between;
+    width:calc((100% - 20px) / 2);
+}
+.content .main-area section:nth-of-type(2n) {
+    margin-left:20px;
+}
+.content .main-area section:nth-of-type(3),
+.content .main-area section:nth-of-type(4) {
+    margin-top:20px;
+}
+.content .main-area section > div {
+    width:100%;
+    background:#2C3238;
+    border-radius:5px;
+    padding:12px 21px 30px 17px;
+}
+.content .main-area section .title {
+    color:#A5B3C2;
+}
+.content .main-area section .type-chart {}
+.content .main-area section .type-chart .title {
+    display:flex;
+}
+.content .main-area section .type-chart .box {
+    display:flex;
+    justify-content:space-between;
+}
+.content .main-area section .type-chart .box > div {
+    width:calc((100% - 38px) / 2);
+}
+.content .main-area section .type-chart .box .chart-area #chart{
+    text-align:center;
+}
+.content .main-area section .type-chart .box .chart-area .c3-chart-arcs {
+    width:200px;
+    margin:0 auto;
+}
+.content .main-area section .type-chart .box .chart-content {
+    background:#202529;
+    border-radius:10px;
+    padding:40px 30px;
+}
+.content .main-area section .type-chart .box .chart-content .chart-info li {
+    display:flex;
+    justify-content:space-between;
+}
+.content .main-area section .type-chart .box .chart-content .chart-info li div {
+    display:flex;
+}
+.content .main-area section .type-chart .box .chart-content > p {
+    text-align:right;
+}
+
+.content .main-area section .type-accordion {
+    width:calc((100% - 20px) * 0.6);
+}
+.content .main-area section .type-accordion .service {}
+.content .main-area section .type-accordion .service .accordion-wrap {
+    margin-top:5px;
+    height:60px;
+    padding:10px;
+    line-height:40px;
+    background:#000;
+    border:1px solid #2F3234;
+}
+.content .main-area section .type-accordion .service .accordion-wrap .accordion-tit {
+    display:flex;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    color:#fff;
+}
+.content .main-area section .type-accordion .service .accordion-wrap .accordion-tit::after {
+    content:"";
+    display:block;
+    width:10px;
+    height:10px;
+    margin-top:13px;
+    border-left:3px solid #999;
+    border-bottom:3px solid #999;
+    transform:rotate(-45deg);
+}
+.content .main-area section .type-accordion .service .accordion-wrap .accordion-tit h4 {
+    position:relative;
+    padding-left:30px;
+}
+.content .main-area section .type-accordion .service .accordion-wrap .accordion-tit h4::before {
+    content:"";
+    display:block;
+    position:absolute;
+    left:0;
+    top:10px;
+    width:20px;
+    height:20px;
+    border-radius:9999px;
+    background:#56AA74;
+}
+.content .main-area section .type-accordion .service .accordion-wrap .accordion-tit div {
+    display:flex;
+}
+.content .main-area section .type-accordion .service .accordion-wrap .accordion-tit div span {
+    position:relative;
+    padding-left:25px;
+    margin-left:10px;
+}
+.content .main-area section .type-accordion .service .accordion-wrap .accordion-tit div span::before {
+    content:"";
+    display:block;
+    position:absolute;
+    left:0;
+    top:14px;
+    width:13px;
+    height:13px;
+    border-radius:9999px;
+}
+.content .main-area section .type-accordion .service .accordion-wrap .accordion-tit .good::before {
+    background:#56AA74;
+}
+.content .main-area section .type-accordion .service .accordion-wrap .accordion-tit .warn::before {
+    background:#FFB941;
+}
+.content .main-area section .type-accordion .service .accordion-wrap .accordion-tit .bad::before {
+    background:#C05353
+}
+.content .main-area section .type-accordion .service .accordion-wrap:first-child {
+    margin-top:0;
+}
+.content .main-area section .type-accordion .service .accordion-wrap .accordion-cont {
+    display:none;   
+}
+.content .main-area section .type-accordion.multi {
+    width:100%;
+}
+.content .main-area section .type-accordion.multi .service {
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:space-between;
+}
+.content .main-area section .type-accordion.multi .service .accordion-wrap {
+    width:calc((100% - 20px) / 2);
+}
+.content .main-area section .type-accordion.multi .service .accordion-wrap:nth-of-type(2) {
+    margin-top:0;
+}
+.content .main-area section .type-accordion.multi .service .accordion-wrap:nth-of-type(2+n) {
+    margin-top:5px;
+}
+.content .main-area section .type-accordion.multi .service .accordion-wrap:first-child {
+    margin-left:0;
+}
+.content .main-area section .type-accordion.simple {
+    width:calc((100% - 20px) * 0.4);
+}
+.content .main-area section .type-accordion.simple .service .accordion-wrap .accordion-tit h4 {
+    padding-left:0;
+}
+.content .main-area section .type-accordion.simple .service .accordion-wrap .accordion-tit h4::before {
+    display:none;
+}
+.c3-chart-arc path {
+    stroke:none;
+}
