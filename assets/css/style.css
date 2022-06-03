@@ -124,6 +124,14 @@ body {
 .content .main-area section .type-accordion {
     width:calc((100% - 20px) * 0.6);
 }
+.content .main-area section .type-accordion .title {
+    display:flex;
+    justify-content:space-between;
+    padding-bottom:20px;
+}
+.content .main-area section .type-accordion .title h3 {
+    font-size:16px;
+}
 .content .main-area section .type-accordion .service {}
 .content .main-area section .type-accordion .service .accordion-wrap {
     margin-top:5px;
